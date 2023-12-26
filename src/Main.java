@@ -28,10 +28,18 @@ public class Main {
                 }
             }
         }
+        LinkedList<String> repspile = new LinkedList<>(repetidas);
+        Map<Integer, String> coordenadas = new HashMap<>();
 
-        for(int i = 0; i < repetidas.size(); i++) {
-            resultado = resultado.replace(repetidas.get(i), Caracteres[i]);
+        for(int i = 0; i < palabras.length; i++) {
+            for(String repetida: repetidas){
+                if(palabras[i].equals(repetida)){
+                    coordenadas.put(i, repetida);
+                }
+            }
         }
+
+
 
         System.out.println(resultado);
     }

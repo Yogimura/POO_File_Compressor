@@ -34,7 +34,5 @@ public class Main {
         }
 
         System.out.println(resultado);
-
-        //En la proxima intenta reemplazar cada espacio en blanco
     }
 }

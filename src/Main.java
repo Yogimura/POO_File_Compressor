@@ -33,19 +33,6 @@ public class Main {
             resultado = resultado.replace(repetidas.get(i), Caracteres[i]);
         }
 
-        int lastreplace = 0;
-        for (String caracter : Caracteres) {
-            if (resultado.lastIndexOf(caracter) > lastreplace) {
-                lastreplace = resultado.lastIndexOf(caracter);
-            }
-        }
-
-        String redunds = resultado.substring(resultado.indexOf(Caracteres[0]), lastreplace + 1);
-        String shortredunds = redunds.replaceAll(" ", "");
-
-        System.out.println(shortredunds);
-        resultado = resultado.replace(redunds, shortredunds);
-
         System.out.println(resultado);
 
         //En la proxima intenta reemplazar cada espacio en blanco

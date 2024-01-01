@@ -4,20 +4,25 @@ public class Main {
     static Scanner lector = new Scanner(System.in);
     static String[] Caracteres = new String[] {"!", "@", "#", "$", "%", "^", "&", "*", "(", ")"};
     public static void main(String[] args) {
-        //Pedro Almanzar del orbe porta un orbe cuyo propietario era el abuelo de su abuelo Almanzar del orbe
         String texto;
         String resultado;
+        String comodin;
 
-        System.out.println("Ingrese el texto a comprimir");
+        String[] palabras;
 
-        texto = lector.nextLine();
-
-        resultado = texto;
-
-        String[] palabras = texto.split(" ");
         ArrayList<String> repetidas = new ArrayList<>();
 
-        String comodin;
+        LinkedList<String> repspile;
+
+        Map<Integer, String> coordenadas = new HashMap<>();
+
+
+        texto = "Pedro Almanzar del orbe porta un orbe cuyo propietario era el abuelo de su abuelo Almanzar del orbe";
+
+        System.out.println(texto);
+
+        resultado = texto;
+        palabras = texto.split(" ");
 
         for(int i = 0; i < palabras.length; i++){
             comodin = palabras[i];
@@ -28,8 +33,8 @@ public class Main {
                 }
             }
         }
-        LinkedList<String> repspile = new LinkedList<>(repetidas);
-        Map<Integer, String> coordenadas = new HashMap<>();
+
+        repspile = new LinkedList<>(repetidas);
 
         for(int i = 0; i < palabras.length; i++) {
             for(String repetida: repetidas){
@@ -38,8 +43,6 @@ public class Main {
                 }
             }
         }
-
-
 
         System.out.println(resultado);
     }

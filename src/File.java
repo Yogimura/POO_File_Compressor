@@ -18,4 +18,6 @@ abstract class File implements iPairs {
 
     public abstract String[] getWords(String content);
 
+    public abstract ArrayList<String> getReps(String[] words);
+
 }

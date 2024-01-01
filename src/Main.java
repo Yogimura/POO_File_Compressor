@@ -4,20 +4,7 @@ public class Main {
     //static Scanner lector = new Scanner(System.in);
 
     public static ArrayList<String> getRepsWords(String[] base){
-        String card;
-        ArrayList<String> repwords = new ArrayList<>();
-
-        for(int i = 0; i < base.length; i++){
-            card = base[i];
-            for(int o = i+1; o < base.length; o++){
-                if(base[o].equals(card) && !repwords.contains(card)){
-                    repwords.add(card);
-                    break;
-                }
-            }
-        }
-
-        return repwords;
+        return null;
     }
 
     public static String[] wordsreplacement(String[] words, ArrayList<String> reps){

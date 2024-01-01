@@ -16,6 +16,10 @@ public class FileManagement {
         this.content = new File(this.URL);
     }
 
+    public FileManagement(){
+
+    }
+
     public String gURL(String nombre){
         return "\\Fileproves\\" + nombre + ".txt";
     }

@@ -3,17 +3,32 @@ import java.util.*;
 public class Main {
     //static Scanner lector = new Scanner(System.in);
     //static String[] Caracteres = new String[] {"!", "@", "#", "$", "%", "^", "&", "*", "(", ")"};
+
+    public static ArrayList<String> getRepsWords(String[] base){
+        String comodin;
+        ArrayList<String> repetidas = new ArrayList<>();
+
+        for(int i = 0; i < base.length; i++){
+            comodin = base[i];
+            for(int o = i+1; o < base.length; o++){
+                if(base[o].equals(comodin) && !repetidas.contains(comodin)){
+                    repetidas.add(comodin);
+                    break;
+                }
+            }
+        }
+
+        return repetidas;
+    }
     public static void main(String[] args) {
         String texto;
         String resultado;
-        String comodin;
 
         String[] palabras;
 
-        ArrayList<String> repetidas = new ArrayList<>();
-
         LinkedList<String> repspile;
 
+        ArrayList<String> repswords;
         Map<Integer, String> coordenadas = new HashMap<>();
 
 
@@ -24,20 +39,12 @@ public class Main {
         resultado = texto;
         palabras = texto.split(" ");
 
-        for(int i = 0; i < palabras.length; i++){
-            comodin = palabras[i];
-            for(int o = i+1; o < palabras.length; o++){
-                if(palabras[o].equals(comodin) && !repetidas.contains(comodin)){
-                    repetidas.add(comodin);
-                    break;
-                }
-            }
-        }
+        repswords = new ArrayList<>(getRepsWords(palabras));
 
-        repspile = new LinkedList<>(repetidas);
+        repspile = new LinkedList<>(repswords);
 
         for(int i = 0; i < palabras.length; i++) {
-            for(String repetida: repetidas){
+            for(String repetida: repswords){
                 if(palabras[i].equals(repetida)){
                     coordenadas.put(i, repetida);
                 }

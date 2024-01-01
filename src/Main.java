@@ -1,8 +1,8 @@
 import java.util.*;
 
 public class Main {
-    static Scanner lector = new Scanner(System.in);
-    static String[] Caracteres = new String[] {"!", "@", "#", "$", "%", "^", "&", "*", "(", ")"};
+    //static Scanner lector = new Scanner(System.in);
+    //static String[] Caracteres = new String[] {"!", "@", "#", "$", "%", "^", "&", "*", "(", ")"};
     public static void main(String[] args) {
         String texto;
         String resultado;

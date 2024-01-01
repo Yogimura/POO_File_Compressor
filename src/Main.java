@@ -59,8 +59,9 @@ public class Main {
         repswords = new ArrayList<>(getRepsWords(words));
         words = wordsreplacement(words, repswords);
 
-        assert words != null : "No hay entrada";
+
         result = String.join(" ", words);
+
 
 
         System.out.println(result);

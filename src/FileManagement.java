@@ -9,16 +9,16 @@ public class FileManagement {
     static Scanner reader;
 
     public static String Read_Content(File rfile) {
-        String file_content = "";
+        StringBuilder file_content = new StringBuilder();
         try(Scanner scanner = reader = new Scanner(rfile)){
                 while(reader.hasNextLine()){
-                    file_content += reader.nextLine() + "\n";
+                    file_content.append(reader.nextLine()).append("\n");
                 }
         }catch (FileNotFoundException ex){
             System.out.println(ex.toString());
         }
 
-        return file_content;
+        return file_content.toString();
     }
 
 }

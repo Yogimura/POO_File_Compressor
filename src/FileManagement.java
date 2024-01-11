@@ -1,27 +1,24 @@
 import java.io.File;
-import java.io.FileReader;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.util.Scanner;
 
 public class FileManagement {
-    String name;
-    int length;
-    File content;
-    FileWriter replacer;
-    Scanner getter;
-    String URL;
 
-    public FileManagement(String nombre){
-        this.URL = gURL(nombre);
-        this.content = new File(this.URL);
-    }
+    static FileWriter replacer;
+    static Scanner reader;
 
-    public FileManagement(){
+    public static String Read_Content(File rfile) {
+        String file_content = "";
+        try(Scanner scanner = reader = new Scanner(rfile)){
+                while(reader.hasNextLine()){
+                    file_content += reader.nextLine() + "\n";
+                }
+        }catch (FileNotFoundException ex){
+            System.out.println(ex.toString());
+        }
 
-    }
-
-    public String gURL(String nombre){
-        return "\\Fileproves\\" + nombre + ".txt";
+        return file_content;
     }
 
 }

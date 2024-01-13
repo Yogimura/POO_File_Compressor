@@ -1,10 +1,8 @@
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class Zipped extends AFile {
-
-    String[] words;
-    ArrayList<String> reps;
-    public Zipped(String content) {
+    public Zipped(String content) throws FileNotFoundException {
         super(content);
     }
 }

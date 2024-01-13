@@ -1,4 +1,6 @@
 import java.io.File;
+import java.io.FileNotFoundException;
+
 abstract class AFile {
 
     public File_Info carry;
@@ -7,7 +9,7 @@ abstract class AFile {
     protected long size;
     protected String name;
     protected String path;
-    AFile(String Path){
+    AFile(String Path) throws FileNotFoundException {
         setPath(Path);
         setFile(new File(path));
         setName(file.getName());

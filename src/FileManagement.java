@@ -6,29 +6,26 @@ import java.util.Scanner;
 
 public class FileManagement {
 
-    private File file;
-    private FileWriter replacer;
-    private Scanner reader;
+    private final File file;
 
     public FileManagement(File set){
         file = set;
     }
 
-    public String Read_Content() {
+    public String Read_Content() throws FileNotFoundException {
         StringBuilder file_content = new StringBuilder();
-        try(Scanner scanner = reader = new Scanner(file)){
+        Scanner reader;
+        try(Scanner _ = reader = new Scanner(file)){
                 while(reader.hasNextLine()){
-                    file_content.append(reader.nextLine()).append("\n");
+                    file_content.append(reader.nextLine()).append(" \n ");
                 }
-        }catch (FileNotFoundException ex){
-            System.out.println(ex.toString());
         }
-
         return file_content.toString();
     }
 
-    public void Write_Content(String content){
-        try(FileWriter Filewriter = replacer = new FileWriter(file.getPath())){
+    public void Write_Content(String content) {
+        FileWriter replacer;
+        try(FileWriter _ = replacer = new FileWriter(file.getPath())){
             replacer.write(content);
         } catch (IOException e) {
             throw new RuntimeException(e);

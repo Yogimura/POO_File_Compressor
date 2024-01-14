@@ -2,7 +2,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Unzipped extends AFile {
+public class Unzipped extends AFile implements Izipper {
     String[] words;
 
     public Unzipped(String path) throws FileNotFoundException {
@@ -18,13 +18,7 @@ public class Unzipped extends AFile {
 
         countReps(wordrepsmap, words);
 
-        printMap(wordrepsmap);
-
-        System.out.println("-------------");
-
         deleteNonrepsWords(wordrepsmap);
-
-        printMap(wordrepsmap);
 
         return wordrepsmap;
     }
@@ -54,5 +48,10 @@ public class Unzipped extends AFile {
                 i = -1;
             }
         }
+    }
+
+    @Override
+    public void IOzip() {
+
     }
 }

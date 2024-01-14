@@ -32,4 +32,11 @@ public class FileManagement {
         }
     }
 
+    public void Zip(){
+
+    }
+
+    public void Unzip(){
+
+    }
 }

@@ -1,4 +1,5 @@
 import java.io.FileNotFoundException;
+import java.util.HashMap;
 
 public class Main {
     //static Scanner lector = new Scanner(System.in);
@@ -7,7 +8,6 @@ public class Main {
 
         System.out.println(prueba.getContent());
 
-        prueba.getReps();
-
+        HashMap<String, Integer> set = prueba.getReps();
     }
 }

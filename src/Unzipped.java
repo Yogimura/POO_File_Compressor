@@ -2,7 +2,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Unzipped extends AFile implements Izipper {
+public class Unzipped extends AFile implements Izipper<Zipped> {
     String[] words;
 
     public Unzipped(String path) throws FileNotFoundException {
@@ -51,7 +51,7 @@ public class Unzipped extends AFile implements Izipper {
     }
 
     @Override
-    public void IOzip() {
-
+    public Zipped IOzip() {
+        return null;
     }
 }

@@ -7,7 +7,9 @@ public class Main {
         Unzipped prueba = new Unzipped("Fileproves\\probing");
 
         System.out.println(prueba.getContent());
+        System.out.println(prueba.getSize());
 
         HashMap<String, Integer> set = prueba.getReps();
+
     }
 }

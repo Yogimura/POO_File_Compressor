@@ -1,5 +1,5 @@
 import java.util.HashMap;
 
-public interface Izipper {
-    void IOzip();
+public interface Izipper<T> {
+    T IOzip();
 }

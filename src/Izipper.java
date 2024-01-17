@@ -1,5 +1,6 @@
+import java.io.File;
 import java.util.HashMap;
 
 public interface Izipper<T> {
-    T IOzip();
+    T IOzip(File_Info ID);
 }

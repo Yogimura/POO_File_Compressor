@@ -31,12 +31,4 @@ public class FileManagement {
             throw new RuntimeException(e);
         }
     }
-
-    public void Zip(){
-
-    }
-
-    public void Unzip(){
-
-    }
 }

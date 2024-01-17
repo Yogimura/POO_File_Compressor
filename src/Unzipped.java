@@ -45,13 +45,13 @@ public class Unzipped extends AFile implements Izipper<Zipped> {
             if(set.get(wordco.get(i)) <= 1){
                 set.remove(wordco.get(i));
                 wordco.remove(i);
-                i = -1;
+                i--;
             }
         }
     }
 
     @Override
-    public Zipped IOzip() {
+    public Zipped IOzip(File_Info ID) {
         return null;
     }
 }

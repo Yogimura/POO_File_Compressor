@@ -9,7 +9,7 @@ public class Zipped extends AFile implements Izipper<Unzipped>{
     }
 
     @Override
-    public Unzipped IOzip() {
+    public Unzipped IOzip(File_Info ID) {
         return null;
     }
 }

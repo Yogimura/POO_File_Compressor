@@ -18,6 +18,15 @@ abstract class AFile {
         carry = new File_Info(file, name, path);
     }
 
+    AFile(File_Info ID) throws FileNotFoundException{
+        setPath(ID.path());
+        setFile(ID.file());
+        setName(ID.name());
+        setSize(file.length());
+        setContent(new FileManagement(file).Read_Content());
+        carry = new File_Info(file, name, path);
+    }
+
     public void setFile(File file) {
         this.file = file;
     }

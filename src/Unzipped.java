@@ -1,6 +1,7 @@
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 
 public class Unzipped extends AFile implements Izipper<Zipped> {
     String[] words;
@@ -20,6 +21,8 @@ public class Unzipped extends AFile implements Izipper<Zipped> {
 
         deleteNonrepsWords(wordrepsmap);
 
+        printMap(wordrepsmap);
+
         return wordrepsmap;
     }
 
@@ -29,8 +32,8 @@ public class Unzipped extends AFile implements Izipper<Zipped> {
         }
     }
 
-    public void countReps(HashMap<String, Integer> set, String[] wset){
-        for (String word : wset) {
+    public void countReps(HashMap<String, Integer> set, String[] wordset){
+        for (String word : wordset) {
             if (set.containsKey(word)) {
                 set.replace(word, set.get(word) + 1);
             } else {
@@ -40,6 +43,7 @@ public class Unzipped extends AFile implements Izipper<Zipped> {
     }
 
     public void deleteNonrepsWords(HashMap<String, Integer> set){
+        set.remove("\n");
         ArrayList<String> wordco = new ArrayList<>(set.keySet());
         for(int i = 0; i < wordco.size(); i++){
             if(set.get(wordco.get(i)) <= 1){
@@ -51,8 +55,26 @@ public class Unzipped extends AFile implements Izipper<Zipped> {
     }
 
     @Override
-    public Zipped IOzip(File_Info ID) {
+    public Zipped IOzip(File_Info ID, HashMap<String, Integer> wordmap) throws FileNotFoundException {
+        int chars = 175;
+        char set = (char) chars;
+        ArrayList<String> golang = new ArrayList<>(wordmap.keySet());
+        HashMap<String, Character> signmaps = new HashMap<>();
 
-        return null;
+        for(int i = 0; i < words.length; i++){
+            if(wordmap.containsKey(words[i]) && golang.contains(words[i])){
+                golang.remove(words[i]);
+                signmaps.put(words[i], set);
+                words[i] = words[i] + set;
+                chars++;
+                set = (char) chars;
+            }else if(wordmap.containsKey(words[i])){
+                words[i] = signmaps.get(words[i]).toString();
+            }
+        }
+
+        this.content = String.join(" ", words);
+
+        return new Zipped(this.content);
     }
 }

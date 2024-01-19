@@ -11,5 +11,12 @@ public class Main {
 
         HashMap<String, Integer> set = prueba.getReps();
 
+        Zipped gola = prueba.IOzip(prueba.carry, set);
+
+        System.out.println(gola.content);
+
+        System.out.println(String.join(" | ", prueba.words));
+
+
     }
 }

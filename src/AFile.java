@@ -18,12 +18,12 @@ abstract class AFile {
         carry = new File_Info(file, name, path);
     }
 
-    AFile(File_Info ID) throws FileNotFoundException{
+    AFile(File_Info ID, String content) throws FileNotFoundException{
         setPath(ID.path());
         setFile(ID.file());
         setName(ID.name());
+        setContent(content);
         setSize(file.length());
-        setContent(new FileManagement(file).Read_Content());
         carry = new File_Info(file, name, path);
     }
 

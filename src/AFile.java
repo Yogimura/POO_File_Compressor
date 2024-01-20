@@ -1,8 +1,8 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 abstract class AFile {
-
     public File_Info carry;
     protected File file;
     protected String content;
@@ -18,13 +18,19 @@ abstract class AFile {
         carry = new File_Info(file, name, path);
     }
 
-    AFile(File_Info ID, String content) throws FileNotFoundException{
-        setPath(ID.path());
-        setFile(ID.file());
-        setName(ID.name());
-        setContent(content);
+    AFile(File_Info ID, String content) throws FileNotFoundException, IOException {
+        setFile(new File(ID.path() + ".ziped"));
+        setPath(file.getPath());
+        setName(file.getName());
         setSize(file.length());
-        carry = new File_Info(file, name, path);
+        setContent(content);
+        if(file.createNewFile()){
+            new FileManagement(file).Write_Content(getContent());
+        }else{
+            System.out.println("El archivo ya existe");
+        }
+
+        carry = new File_Info(ID.file(), ID.name(), ID.path());
     }
 
     public void setFile(File file) {

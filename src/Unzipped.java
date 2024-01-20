@@ -1,4 +1,5 @@
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -55,7 +56,7 @@ public class Unzipped extends AFile implements Izipper<Zipped> {
     }
 
     @Override
-    public Zipped IOzip(File_Info ID, HashMap<String, Integer> wordmap) throws FileNotFoundException {
+    public Zipped IOzip(File_Info ID, HashMap<String, Integer> wordmap) throws IOException {
         int chars = 175;
         char set = (char) chars;
         ArrayList<String> golang = new ArrayList<>(wordmap.keySet());
@@ -74,7 +75,6 @@ public class Unzipped extends AFile implements Izipper<Zipped> {
         }
 
         this.content = String.join(" ", words);
-
-        return new Zipped(this.content);
+        return new Zipped(ID, content);
     }
 }

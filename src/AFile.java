@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.HashMap;
 
 abstract class AFile {
     public File_Info carry;
@@ -19,16 +20,16 @@ abstract class AFile {
     }
 
     AFile(File_Info ID, String content) throws FileNotFoundException, IOException {
-        setFile(new File(ID.path() + ".ziped"));
+        setFile(new File(ID.path()+ ".ziped"));
         setPath(file.getPath());
         setName(file.getName());
-        setSize(file.length());
         setContent(content);
         if(file.createNewFile()){
             new FileManagement(file).Write_Content(getContent());
         }else{
             System.out.println("El archivo ya existe");
         }
+        setSize(file.length());
 
         carry = new File_Info(ID.file(), ID.name(), ID.path());
     }

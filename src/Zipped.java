@@ -8,7 +8,6 @@ public class Zipped extends AFile implements Izipper<Unzipped>{
     public Zipped(String path) throws FileNotFoundException {
         super(path);
         PositionMap = FileManagement.getWordmap(content);
-        new FileManagement(this).printMap(PositionMap);
     }
 
     public Zipped(File_Info ID, String content, HashMap<String, Character> signmap) throws IOException {
@@ -16,7 +15,8 @@ public class Zipped extends AFile implements Izipper<Unzipped>{
         PositionMap = new HashMap<>(signmap);
     }
     @Override
-    public Unzipped IOzip(File_Info ID, HashMap<String, Integer> wordmap) {
-        return null;
+    public Unzipped IOzip(File_Info ID, HashMap<String, Integer> wordmap) throws FileNotFoundException {
+
+        return new Unzipped(null);
     }
 }

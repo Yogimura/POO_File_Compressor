@@ -20,7 +20,11 @@ abstract class AFile {
     }
 
     AFile(File_Info ID, String content) throws FileNotFoundException, IOException {
-        setFile(new File(ID.path()+ ".ziped"));
+        if(this instanceof Zipped){
+            setFile(new File(ID.path()+ ".ziped"));
+        }else {
+            setFile(new File(ID.path().substring(0, ID.path().length() - 6)));
+        }
         setPath(file.getPath());
         setName(file.getName());
         setContent(content);

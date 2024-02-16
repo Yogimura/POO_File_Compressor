@@ -11,6 +11,11 @@ public class Unzipped extends AFile implements Izipper<Zipped> {
         words = content.split(" ");
     }
 
+    public Unzipped(File_Info ID, String content) throws FileNotFoundException, IOException{
+        super(ID, content);
+        words = content.split(" ");
+    }
+
     @Override
     public Zipped IOzip(File_Info ID, HashMap<String, Integer> wordmap) throws IOException {
         int chars = 175;

@@ -1,9 +1,6 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.util.*;
 import java.nio.file.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -33,10 +30,7 @@ public class Main {
                 }
             }
         });
-
-        ArrayList<AFile> gogo = new ArrayList<>(Files.stream().filter(f -> f instanceof Unzipped).toList());
-        Files.removeIf(f -> f instanceof Unzipped);
-        Files.addAll(gogo);
+        Files.sort((FileA, FileB) ->FileA.getClass().getSimpleName().toString().compareTo(FileB.getClass().getSimpleName().toString()));
         Files.forEach(f -> System.out.println(f.carry + ":" + f.getClass()));
     }
 

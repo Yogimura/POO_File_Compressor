@@ -3,7 +3,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 
-abstract class AFile {
+public abstract class AFile {
     public File_Info carry;
     protected File file;
     protected String content;

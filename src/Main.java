@@ -13,9 +13,12 @@ public class Main {
         System.out.println("Quiere usted proceder?\n1. Si\n2. No\n0. Salir");
         int sl = -1;
         sl = verifyInput(sl, 0, 2);
-        ArrayList<AFile> Files = new ArrayList<>();
+        ArrayList<AFile> Files = getAorderfiles("Fileproves");
+    }
 
-        getFoldersFiles(Paths.get("Fileproves")).forEach(File -> {
+    public static ArrayList<AFile> getAorderfiles(String path) throws IOException{
+        ArrayList<AFile> Files = new ArrayList<>();
+        getFoldersFiles(Paths.get(path)).forEach(File -> {
             if(File.endsWith(".ziped")){
                 try{
                     Files.add(new Zipped(File));
@@ -30,8 +33,9 @@ public class Main {
                 }
             }
         });
-        Files.sort((FileA, FileB) ->FileA.getClass().getSimpleName().toString().compareTo(FileB.getClass().getSimpleName().toString()));
+        Files.sort(Comparator.comparing(FileA -> FileA.getClass().getSimpleName()));
         Files.forEach(f -> System.out.println(f.carry + ":" + f.getClass()));
+        return Files;
     }
 
     public static ArrayList<String> getFoldersFiles(Path path) throws IOException{

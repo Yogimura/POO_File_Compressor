@@ -15,7 +15,6 @@ public class Main {
         switch (sl){
             case 1 -> {
                 ArrayList<AFile> Files = getAorderfiles("Fileproves");
-
             }
             case 2 -> {
 

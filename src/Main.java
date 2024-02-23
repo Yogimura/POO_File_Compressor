@@ -2,21 +2,31 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.*;
 import java.nio.file.*;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Main {
     static Scanner lector = new Scanner(System.in);
-    public static void main(String[] args) throws FileNotFoundException, IOException, InterruptedException {
+    public static void main(String[] args) {
         System.out.println("Bienvenido al sistema de compresion de archivos");
         System.out.println("Todos los archivos que se encuentren dentro de esta carpeta se comprimiran o de descomprimiran segun los archivos esten compresos o no.");
-        System.out.println("Quiere usted proceder?\n1. Si\n2. No\n0. Salir");
+        System.out.print("Quiere usted proceder?\n1. Si\n2. No\nEleccion: ");
         int sl = -1;
-        sl = verifyInput(sl, 0, 2);
-        ArrayList<AFile> Files = getAorderfiles("Fileproves");
+        sl = verifyInput(sl, 1, 2);
+        switch (sl){
+            case 1 -> {
+                ArrayList<AFile> Files = getAorderfiles("Fileproves");
+
+            }
+            case 2 -> {
+
+            }
+            default -> {}
+        }
+
+
     }
 
-    public static ArrayList<AFile> getAorderfiles(String path) throws IOException{
+    public static ArrayList<AFile> getAorderfiles(String path) {
         ArrayList<AFile> Files = new ArrayList<>();
         getFoldersFiles(Paths.get(path)).forEach(File -> {
             if(File.endsWith(".ziped")){
@@ -38,7 +48,7 @@ public class Main {
         return Files;
     }
 
-    public static ArrayList<String> getFoldersFiles(Path path) throws IOException{
+    public static ArrayList<String> getFoldersFiles(Path path){
         ArrayList<String> files = new ArrayList<>();
 
         try(Stream<Path> filepath = Files.walk(path)){
@@ -48,12 +58,6 @@ public class Main {
         }
         files.remove(0);
         return files;
-    }
-
-    public static void cleanScreen(long milis) throws InterruptedException{
-        Thread.sleep(milis);
-        System.out.println("\033[H\033[2J");
-        System.out.flush();
     }
 
     public static int verifyInput(int set, int rangeA, int rangeB){

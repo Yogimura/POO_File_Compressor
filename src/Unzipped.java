@@ -35,8 +35,9 @@ public class Unzipped extends AFile implements Izipper<Zipped, HashMap<String, I
             }
         }
         this.content = String.join(" ", words);
-        String path = "Fileresult\\" + ID.name();
+        String path = FileManagement.OutDir + ID.name();
         File_Info returndata = new File_Info(new File(path), ID.name(), path);
+        System.out.println(returndata);
         return new Zipped(returndata, content, signmaps);
     }
 }

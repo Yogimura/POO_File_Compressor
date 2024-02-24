@@ -24,8 +24,9 @@ public class Zipped extends AFile implements Izipper<Unzipped, HashMap<String, C
         for(int i = 0; i < wordmap.size(); i++){
             content = content.replaceAll(wordmap.get(palabras.get(i)).toString(), palabras.get(i));
         }
-        String path = "Fileresult\\"+ID.name();
+        String path = FileManagement.OutDir + ID.name();
         File_Info resultdata = new File_Info(new File(path), ID.name(), path);
+        System.out.println(resultdata);
         return new Unzipped(resultdata, content);
     }
 }

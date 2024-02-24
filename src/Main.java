@@ -1,3 +1,4 @@
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,16 +17,22 @@ public class Main {
         sl = verifyInput(sl, 1, 2);
         switch (sl){
             case 1 -> {
-                SortedFiles Files = getAorderfiles("Fileproves");
+
+                System.out.print("Ingrese la ruta donde estan los archivos: ");
+                String Inpath = lector.next();
+                System.out.print("Ingrese la ruta donde estaran los nuevos archivos: ");
+                String outpath = lector.next();
+                FileManagement.InDir = Inpath;
+                FileManagement.OutDir = outpath;
+                SortedFiles Files = getAorderfiles(FileManagement.InDir);
                 ZippedThread decompress = new ZippedThread(new ArrayList<>(Files.a()));
                 UnzippedThread compress = new UnzippedThread(new ArrayList<>(Files.b()));
                 decompress.start();
                 compress.start();
             }
             case 2 -> {
-
+                System.exit(0);
             }
-            default -> {}
         }
 
 

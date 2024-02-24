@@ -6,6 +6,7 @@ import java.util.*;
 
 public class FileManagement implements iprint<HashMap>{
 
+    public static String InDir, OutDir;
     private File file;
     private AFile afile;
 

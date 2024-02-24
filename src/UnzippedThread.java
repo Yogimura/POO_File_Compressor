@@ -12,7 +12,7 @@ public class UnzippedThread extends Thread{
             try {
                 IOfiles.add(go.IOzip(go.carry, new FileManagement(go).getReps()));
             } catch (IOException e) {
-                e.printStackTrace();
+                System.out.println("Hubo un problema");
             }
         }
     }

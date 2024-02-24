@@ -4,7 +4,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 
-public class FileManagement implements iprint<HashMap>{
+public class FileManagement {
 
     public static String InDir, OutDir;
     private File file;
@@ -105,16 +105,5 @@ public class FileManagement implements iprint<HashMap>{
             }
         }
         return Wordmap;
-    }
-
-    public static String replaceWordmap(){
-        return null;
-    }
-
-    @Override
-    public void printMap(HashMap set) {
-        for(Object key: set.keySet()){
-            System.out.println(key + " = " + set.get(key));
-        }
     }
 }

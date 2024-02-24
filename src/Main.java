@@ -1,4 +1,3 @@
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -30,12 +29,8 @@ public class Main {
                 decompress.start();
                 compress.start();
             }
-            case 2 -> {
-                System.exit(0);
-            }
+            case 2 -> System.exit(0);
         }
-
-
     }
 
     public static SortedFiles getAorderfiles(String path) {

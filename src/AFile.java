@@ -59,9 +59,5 @@ public abstract class AFile {
     public String getContent() {
         return content;
     }
-
-    public long getSize() {
-        return size;
-    }
 }
 

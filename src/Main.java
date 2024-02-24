@@ -1,6 +1,8 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.InputMismatchException;
 import java.nio.file.*;
 import java.util.stream.Stream;
 
@@ -14,7 +16,9 @@ public class Main {
         sl = verifyInput(sl, 1, 2);
         switch (sl){
             case 1 -> {
-                ArrayList<AFile> Files = getAorderfiles("Fileproves");
+                SortedFiles Files = getAorderfiles("Fileproves");
+                ZippedThread decompress = new ZippedThread(new ArrayList<>(Files.a()));
+                UnzippedThread compress = new UnzippedThread(new ArrayList<>(Files.b()));
             }
             case 2 -> {
 
@@ -25,26 +29,25 @@ public class Main {
 
     }
 
-    public static ArrayList<AFile> getAorderfiles(String path) {
-        ArrayList<AFile> Files = new ArrayList<>();
+    public static SortedFiles getAorderfiles(String path) {
+        ArrayList<Zipped> ZFiles = new ArrayList<>();
+        ArrayList<Unzipped> UFiles = new ArrayList<>();
         getFoldersFiles(Paths.get(path)).forEach(File -> {
             if(File.endsWith(".ziped")){
                 try{
-                    Files.add(new Zipped(File));
+                    ZFiles.add(new Zipped(File));
                 }catch (FileNotFoundException ex){
                     System.out.println("Archivo no se encuentra");
                 }
             }else{
                 try{
-                    Files.add(new Unzipped(File));
+                    UFiles.add(new Unzipped(File));
                 }catch (FileNotFoundException ex){
                     System.out.println("Archivo no se encuentra");
                 }
             }
         });
-        Files.sort(Comparator.comparing(FileA -> FileA.getClass().getSimpleName()));
-        Files.forEach(f -> System.out.println(f.carry + ":" + f.getClass()));
-        return Files;
+        return new SortedFiles(ZFiles, UFiles);
     }
 
     public static ArrayList<String> getFoldersFiles(Path path){

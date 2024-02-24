@@ -1,11 +1,10 @@
-import jdk.jshell.spi.ExecutionControl;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 
-public class FileManagement implements iprint{
+public class FileManagement implements iprint<HashMap>{
 
     private File file;
     private AFile afile;
@@ -60,7 +59,8 @@ public class FileManagement implements iprint{
         }
     }
 
-    public HashMap<String, Integer> getReps(String[] words){
+    public HashMap<String, Integer> getReps(){
+        String[] words;
         HashMap<String, Integer> wordrepsmap = new HashMap<>();
         String cont = afile.getContent();
 
@@ -97,7 +97,7 @@ public class FileManagement implements iprint{
                 if(Wordmap.isEmpty()){
                     Wordmap.put(pword, pchar);
                     cchar = pchar;
-                }else if(!Wordmap.containsKey(pchar)){
+                }else if(!Wordmap.containsValue(pchar)){
                     if(pchar == cchar + 1){
                         Wordmap.put(pword, pchar);
                         cchar = pchar;
@@ -112,6 +112,7 @@ public class FileManagement implements iprint{
         return null;
     }
 
+    @Override
     public void printMap(HashMap set) {
         for(Object key: set.keySet()){
             System.out.println(key + " = " + set.get(key));

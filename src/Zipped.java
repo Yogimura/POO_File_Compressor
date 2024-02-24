@@ -1,9 +1,8 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Zipped extends AFile implements Izipper<Unzipped>{
+public class Zipped extends AFile implements Izipper<Unzipped, HashMap<String, Character>>{
     HashMap<String, Character> PositionMap;
     public Zipped(String path) throws FileNotFoundException {
         super(path);
@@ -14,8 +13,9 @@ public class Zipped extends AFile implements Izipper<Unzipped>{
         super(ID, content);
         PositionMap = new HashMap<>(signmap);
     }
+    //TODO develop this part
     @Override
-    public Unzipped IOzip(File_Info ID, HashMap<String, Integer> wordmap) throws FileNotFoundException {
+    public Unzipped IOzip(File_Info ID, HashMap<String, Character> wordmap) throws FileNotFoundException {
 
         return new Unzipped(null);
     }

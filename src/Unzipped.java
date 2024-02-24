@@ -1,9 +1,8 @@
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.*;
 
-public class Unzipped extends AFile implements Izipper<Zipped> {
+public class Unzipped extends AFile implements Izipper<Zipped, HashMap<String, Integer>> {
     String[] words;
 
     public Unzipped(String path) throws FileNotFoundException {
@@ -11,7 +10,7 @@ public class Unzipped extends AFile implements Izipper<Zipped> {
         words = content.split(" ");
     }
 
-    public Unzipped(File_Info ID, String content) throws FileNotFoundException, IOException{
+    public Unzipped(File_Info ID, String content) throws IOException{
         super(ID, content);
         words = content.split(" ");
     }

@@ -1,5 +1,3 @@
-import java.util.HashMap;
-
-public interface iprint {
-    void printMap(HashMap set);
+public interface iprint<T> {
+    void printMap(T set);
 }

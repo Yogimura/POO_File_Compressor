@@ -1,8 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.HashMap;
-
 public abstract class AFile {
     public File_Info carry;
     protected File file;
@@ -19,7 +17,7 @@ public abstract class AFile {
         carry = new File_Info(file, name, path);
     }
 
-    AFile(File_Info ID, String content) throws FileNotFoundException, IOException {
+    AFile(File_Info ID, String content) throws IOException {
         if(this instanceof Zipped){
             setFile(new File(ID.path()+ ".ziped"));
         }else {

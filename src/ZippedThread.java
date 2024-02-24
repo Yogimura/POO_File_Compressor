@@ -1,9 +1,8 @@
 import java.io.IOException;
 import java.util.ArrayList;
-
 public class ZippedThread extends Thread{
     ArrayList<Zipped> files;
-    static ArrayList<Unzipped> IOfiles;
+    static ArrayList<Unzipped> IOfiles = new ArrayList<>();
     public ZippedThread(ArrayList<Zipped> set){
         this.files = new ArrayList<>(set);
     }

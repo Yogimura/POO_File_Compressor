@@ -2,7 +2,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 public class UnzippedThread extends Thread{
     ArrayList<Unzipped> files;
-    static ArrayList<Zipped> IOfiles;
+    static ArrayList<Zipped> IOfiles = new ArrayList<>();
     public UnzippedThread(ArrayList<Unzipped> set){
         this.files = new ArrayList<>(set);
     }
@@ -10,9 +10,9 @@ public class UnzippedThread extends Thread{
     public void run() {
         for(Unzipped go: files){
             try {
-                IOfiles.add(go.IOzip(go.carry, new FileManagement(go.carry.file()).getReps()));
+                IOfiles.add(go.IOzip(go.carry, new FileManagement(go).getReps()));
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                e.printStackTrace();
             }
         }
     }

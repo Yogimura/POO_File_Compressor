@@ -79,8 +79,6 @@ public class FileManagement implements iprint<HashMap>{
 
         deleteNonrepsWords(wordrepsmap);
 
-        printMap(wordrepsmap);
-
         return wordrepsmap;
     }
 

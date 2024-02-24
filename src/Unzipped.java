@@ -1,3 +1,4 @@
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.*;
@@ -33,8 +34,9 @@ public class Unzipped extends AFile implements Izipper<Zipped, HashMap<String, I
                 words[i] = signmaps.get(words[i]).toString();
             }
         }
-
         this.content = String.join(" ", words);
-        return new Zipped(ID, content, signmaps);
+        String path = "Fileresult\\" + ID.name();
+        File_Info returndata = new File_Info(new File(path), ID.name(), path);
+        return new Zipped(returndata, content, signmaps);
     }
 }

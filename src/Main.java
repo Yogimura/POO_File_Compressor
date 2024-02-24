@@ -19,6 +19,8 @@ public class Main {
                 SortedFiles Files = getAorderfiles("Fileproves");
                 ZippedThread decompress = new ZippedThread(new ArrayList<>(Files.a()));
                 UnzippedThread compress = new UnzippedThread(new ArrayList<>(Files.b()));
+                decompress.start();
+                compress.start();
             }
             case 2 -> {
 

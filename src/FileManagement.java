@@ -30,8 +30,7 @@ public class FileManagement {
     }
 
     public void Write_Content(String content) {
-        FileWriter replacer;
-        try(FileWriter _ = replacer = new FileWriter(file.getPath())){
+        try(FileWriter replacer =  new FileWriter(file.getPath())){
             replacer.write(content);
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -83,6 +82,12 @@ public class FileManagement {
         return wordrepsmap;
     }
 
+    /**
+     * <h1>This function goes hard </h1>
+     * it's separate the special signs from his words
+     * @param content this is the text of the file
+     * @return this shit returns a map of words
+     * */
     public static HashMap<String, Character> getWordmap(String content){
 
         HashMap<String, Character> Wordmap = new HashMap<>();

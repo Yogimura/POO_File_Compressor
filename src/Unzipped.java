@@ -2,7 +2,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.*;
-
+//TODO in scope documentation
+//TODO general documentation
 public class Unzipped extends AFile implements Izipper<Zipped, HashMap<String, Integer>> {
     String[] words;
 

@@ -3,21 +3,43 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
-
+//TODO in scope documentation
+/**
+ * This class have the duty of manipulate refine the files and their contents.
+ * */
 public class FileManagement {
-
+    /**
+     * This static values represents the Directory where the file is, and the Directory where his {@code IOzip} version will be.
+     * */
     public static String InDir, OutDir;
+
+    /**
+     * This is an instance of {@link File} class. It's used to manage some info of the real file.
+     * */
     private File file;
+
+    /**
+     * This is an instance of {@link AFile} class. It´s used to manage some info of the abstract file.
+     * */
     private AFile afile;
 
+    /**
+     * Base constructor, it receives a {@link File} to be used by the instance of the class.
+     * */
     public FileManagement(File set){
         file = set;
     }
-
+    /**
+     * Base constructor, it receives a {@link AFile} to be used by the instance of the class.
+     * */
     public FileManagement(AFile set){
         afile = set;
     }
 
+    /**
+     * Read the content of the {@link File} instance of this object.
+     * @return the content of a file.
+     * */
     public String Read_Content() throws FileNotFoundException {
         StringBuilder file_content = new StringBuilder();
         Scanner reader;
@@ -29,6 +51,11 @@ public class FileManagement {
         return file_content.toString();
     }
 
+    /**
+     * write text to a real file.
+     * @param content text to be written.
+     * */
+
     public void Write_Content(String content) {
         try(FileWriter replacer =  new FileWriter(file.getPath())){
             replacer.write(content);
@@ -37,6 +64,10 @@ public class FileManagement {
         }
     }
 
+    /**
+     * delete the linejumps and the words with no reps in the file's text.
+     * @param set A HashMap, the key is the word and the value is the number of times that is repeated in the file's text
+     * */
     static public void deleteNonrepsWords(HashMap<String, Integer> set){
         set.remove("\n");
         ArrayList<String> wordco = new ArrayList<>(set.keySet());
@@ -48,7 +79,11 @@ public class FileManagement {
             }
         }
     }
-
+    /**
+     * This count the number of reps of a word in a String.
+     * @param set is the instance of the return object itself.
+     * @param wordset this String array contains each word of the file's content.
+    * */
     static public void countReps(HashMap<String, Integer> set, String[] wordset){
         for (String word : wordset) {
             if (set.containsKey(word)) {
@@ -59,6 +94,10 @@ public class FileManagement {
         }
     }
 
+    /**
+     * Get the map of reps of a {@link Unzipped} file.
+     * @return Hashmap, the key is the word and the value is the number of times that a word appear on the text.
+     * */
     public HashMap<String, Integer> getReps(){
         String[] words;
         HashMap<String, Integer> wordrepsmap = new HashMap<>();
@@ -83,10 +122,9 @@ public class FileManagement {
     }
 
     /**
-     * <h1>This function goes hard </h1>
-     * it's separate the special signs from his words
-     * @param content this is the text of the file
-     * @return this shit returns a map of words
+     * This get each word and his related character on a {@link Zipped} instance.
+     * @param content the text of the {@link Zipped} file.
+     * @return HashMap, where the key is the word and the value is the related character.
      * */
     public static HashMap<String, Character> getWordmap(String content){
 

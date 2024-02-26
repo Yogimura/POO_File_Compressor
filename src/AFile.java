@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+//TODO in scope documentation
 /**
  * the {@code AFile} class is the representation of an abstract File.
  * it contains the fields of a general file, neither it's a {@link Zipped}

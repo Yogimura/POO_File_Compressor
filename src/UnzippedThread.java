@@ -1,5 +1,7 @@
 import java.io.IOException;
 import java.util.ArrayList;
+//TODO in scope documentation
+//TODO general documentation
 public class UnzippedThread extends Thread{
     ArrayList<Unzipped> files;
     static ArrayList<Zipped> IOfiles = new ArrayList<>();

@@ -3,7 +3,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-
+//TODO in scope documentation
+//TODO general documentation
 public class Zipped extends AFile implements Izipper<Unzipped, HashMap<String, Character>>{
     HashMap<String, Character> PositionMap;
     public Zipped(String path) throws FileNotFoundException {

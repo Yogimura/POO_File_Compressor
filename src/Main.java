@@ -5,7 +5,8 @@ import java.util.Scanner;
 import java.util.InputMismatchException;
 import java.nio.file.*;
 import java.util.stream.Stream;
-
+//TODO in scope documentation
+//TODO general documentation
 public class Main {
     static Scanner lector = new Scanner(System.in);
     public static void main(String[] args) {

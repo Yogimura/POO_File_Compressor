@@ -6,9 +6,20 @@ import java.util.InputMismatchException;
 import java.nio.file.*;
 import java.util.stream.Stream;
 //TODO in scope documentation
-//TODO general documentation
+/**
+ * this project aspire to compress very redundant texts using POO to manage the text processing and output.
+ * @author vladimir a.k.a Yogimura
+ * */
 public class Main {
+
+    /**
+     * {@link Scanner} instance to read user Input.
+     * */
     static Scanner lector = new Scanner(System.in);
+
+    /**
+     * main menu
+     * */
     public static void main(String[] args) {
         System.out.println("Bienvenido al sistema de compresion de archivos");
         System.out.println("Todos los archivos que se encuentren dentro de esta carpeta se comprimiran o de descomprimiran segun los archivos esten compresos o no.");
@@ -34,6 +45,11 @@ public class Main {
         }
     }
 
+    /**
+     * create the instances of the files and classified then in base of his extension in {@link Zipped} or {@link Unzipped}.
+     * @param path is the directory where the files are.
+     * @return a {@link SortedFiles} record, which contains both lists of files.
+     * */
     public static SortedFiles getAorderfiles(String path) {
         ArrayList<Zipped> ZFiles = new ArrayList<>();
         ArrayList<Unzipped> UFiles = new ArrayList<>();
@@ -55,6 +71,11 @@ public class Main {
         return new SortedFiles(ZFiles, UFiles);
     }
 
+    /**
+     * Get all the files from a directory.
+     * @param path is the where the files are.
+     * @return a {@code ArrayList<String>} that contains the path of all the files in the directory.
+     * */
     public static ArrayList<String> getFoldersFiles(Path path){
         ArrayList<String> files = new ArrayList<>();
 
@@ -67,6 +88,13 @@ public class Main {
         return files;
     }
 
+    /**
+     * This function verify if a user input is in the range of options.
+     * @param set is the user input.
+     * @param rangeA is the min value.
+     * @param rangeB is the max value.
+     * @return the user options if the input fits the options, otherwise it will loop until the input fit.
+     * */
     public static int verifyInput(int set, int rangeA, int rangeB){
         int i = 0;
         do {

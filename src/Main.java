@@ -1,4 +1,3 @@
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -35,7 +34,7 @@ public class Main {
                 String outpath = lector.next();
                 FileManagement.InDir = Inpath;
                 FileManagement.OutDir = outpath;
-                SortedFiles Files = getAorderfiles(FileManagement.InDir);
+                SortedFiles Files = SortedFiles.getAorderfiles(getFoldersFiles(Paths.get(FileManagement.InDir)));
                 ZippedThread decompress = new ZippedThread(new ArrayList<>(Files.a()));
                 UnzippedThread compress = new UnzippedThread(new ArrayList<>(Files.b()));
                 decompress.start();
@@ -45,31 +44,6 @@ public class Main {
         }
     }
 
-    /**
-     * create the instances of the files and classified then in base of his extension in {@link Zipped} or {@link Unzipped}.
-     * @param path is the directory where the files are.
-     * @return a {@link SortedFiles} record, which contains both lists of files.
-     * */
-    public static SortedFiles getAorderfiles(String path) {
-        ArrayList<Zipped> ZFiles = new ArrayList<>();
-        ArrayList<Unzipped> UFiles = new ArrayList<>();
-        getFoldersFiles(Paths.get(path)).forEach(File -> {
-            if(File.endsWith(".ziped")){
-                try{
-                    ZFiles.add(new Zipped(File));
-                }catch (FileNotFoundException ex){
-                    System.out.println("Archivo no se encuentra");
-                }
-            }else{
-                try{
-                    UFiles.add(new Unzipped(File));
-                }catch (FileNotFoundException ex){
-                    System.out.println("Archivo no se encuentra");
-                }
-            }
-        });
-        return new SortedFiles(ZFiles, UFiles);
-    }
 
     /**
      * Get all the files from a directory.

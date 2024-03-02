@@ -9,12 +9,12 @@ import java.util.*;
  * */
 public class Unzipped extends AFile implements Izipper<Zipped, HashMap<String, Integer>> {
     /**
-     * Each word of the content of the file represents a position in this array.
+     * Each word of the file´s content represents a position in this array.
      * */
     String[] words;
 
     /**
-     * This constructor create an {@link Unzipped} file from a path., and split the content into the array {@link Unzipped#words}
+     * This constructor create an {@link Unzipped} file from a path, and split the content into the array {@link Unzipped#words}
      * @param path the path of the file.
      * */
     public Unzipped(String path) throws FileNotFoundException {
@@ -23,7 +23,7 @@ public class Unzipped extends AFile implements Izipper<Zipped, HashMap<String, I
     }
 
     /**
-     * This constructor create and {@link Unzipped} file from an {@link Zipped} file using {@link Izipper#IOzip}.
+     * This constructor create an {@link Unzipped} file from a {@link Zipped} file using {@link Izipper#IOzip}.
      * @param ID this is an instance of {@link File_Info} that contains the necessary data to create an Unzipped file from scratch.
      * @param content this is the new content of the new {@link Unzipped} file.
      * */

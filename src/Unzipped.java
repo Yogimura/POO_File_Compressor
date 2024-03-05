@@ -2,7 +2,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.*;
-//TODO in scope documentation
 
 /**
  * This class represents an Unzipped file. it implements the {@link Izipper} interface to zip files.

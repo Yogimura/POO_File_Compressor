@@ -9,7 +9,7 @@ public interface Izipper<T, U> {
     /**
      * This compress or decompress a file dependant of which object is.
      * @param ID is the info that will pass to the new instance.
-     * @param wordmap is the map of word and the info of words, this info would be the number or reps or a related character.
+     * @param wordmap is the map of word and the info of words, this info would be the number of reps or a related character.
      * */
     T IOzip(File_Info ID, U wordmap) throws IOException;
 }

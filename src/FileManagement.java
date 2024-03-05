@@ -2,8 +2,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.*;
-//TODO in scope documentation
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Arrays;
 /**
  * This class have the duty of manipulate refine the files and their contents.
  * */
@@ -68,9 +70,13 @@ public class FileManagement {
      * delete the linejumps and the words with no reps in the file's text.
      * @param set A HashMap, the key is the word and the value is the number of times that is repeated in the file's text
      * */
-    static public void deleteNonrepsWords(HashMap<String, Integer> set){
-        set.remove("\n");
+    static public void deleteNorepsWords(HashMap<String, Integer> set){
+        set.remove("\n"); ///remove jumplines
+        /*Create an array using the keys of set, this to have an
+        * iterable list to compare.
+        * */
         ArrayList<String> wordco = new ArrayList<>(set.keySet());
+        //Compares each value of set and remove if the count is one or less.
         for(int i = 0; i < wordco.size(); i++){
             if(set.get(wordco.get(i)) <= 1){
                 set.remove(wordco.get(i));
@@ -116,7 +122,7 @@ public class FileManagement {
 
         countReps(wordrepsmap, words);
 
-        deleteNonrepsWords(wordrepsmap);
+        deleteNorepsWords(wordrepsmap);
 
         return wordrepsmap;
     }

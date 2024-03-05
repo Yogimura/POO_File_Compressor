@@ -2,9 +2,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.InputMismatchException;
-import java.nio.file.*;
+import java.nio.file.Paths;
+import java.nio.file.Path;
+import java.nio.file.Files;
 import java.util.stream.Stream;
-//TODO in scope documentation
 /**
  * this project aspire to compress very redundant texts using POO to manage the text processing and output.
  * @author vladimir a.k.a Yogimura

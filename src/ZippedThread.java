@@ -1,7 +1,6 @@
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-//TODO in scope documentation
 /**
  * This class extends {@link Thread}, This unzips all the {@link Zipped} Files.
  * */

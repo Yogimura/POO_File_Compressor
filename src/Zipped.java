@@ -3,7 +3,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-//TODO in scope documentation
 /**
  * This class represents a Zipped file. it implements the {@link Izipper} interface to zip files.
  * */

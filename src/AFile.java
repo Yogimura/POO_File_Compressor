@@ -1,7 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-//TODO in scope documentation
 /**
  * the {@code AFile} class is the representation of an abstract File.
  * it contains the fields of a general file, neither it's a {@link Zipped}
@@ -49,13 +48,14 @@ public abstract class AFile {
     }
 
     /**
-     * This constructor is used in subclasses to switch the instance of each subclass. It means {@link Unzipped} to {@link Zipped} and viceversa.
-     * That's cause it modify the extension of the new {@code file} dependently of the subclass's instance, in the process creaating a new {@code file}
+     * This constructor is used in subclasses to switch the instance of each subclass. It means {@link Unzipped} to {@link Zipped} and vice-versa.
+     * That's cause it modify the extension of the new {@code file} dependently of the subclass's instance, in the process creating a new {@code file}
      * @param ID this is the ID of the object, it contains the basis information to create the new object.
      * @param content this is the text of the new {@link File}
      * */
 
     AFile(File_Info ID, String content) throws IOException {
+        //Since this constructor create a new object, we have to difference the file extension.
         if(this instanceof Zipped){
             setFile(new File(ID.path()+ ".ziped"));
         }else {
@@ -74,6 +74,7 @@ public abstract class AFile {
         carry = new File_Info(ID.file(), ID.name(), ID.path());
     }
 
+    //Setters and getter.
     public void setFile(File file) {
         this.file = file;
     }
